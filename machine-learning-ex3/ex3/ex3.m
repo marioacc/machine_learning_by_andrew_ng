@@ -21,7 +21,7 @@
 clear ; close all; clc
 
 %Load last programming assigment libraries
-addpath('../../machine-learning-ex2/ex2')
+
 %% Setup the parameters you will use for this part of the exercise
 input_layer_size  = 400;  % 20x20 Input Images of Digits
 num_labels = 10;          % 10 labels, from 1 to 10

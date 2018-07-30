@@ -1,4 +1,6 @@
+
 function [J, grad] = lrCostFunction(theta, X, y, lambda)
+addpath('../../machine-learning-ex2/ex2/');
 %LRCOSTFUNCTION Compute cost and gradient for logistic regression with 
 %regularization
 %   J = LRCOSTFUNCTION(theta, X, y, lambda) computes the cost of using
@@ -35,15 +37,7 @@ grad = zeros(size(theta));
 %           temp(1) = 0;   % because we don't add anything for j = 0  
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
-[J,grad] = costFunctionReg(theta, X, y, lambda)
-
-
-
-
-
-
-
-
+[J,grad] = costFunctionReg(theta, X, y, lambda);
 
 
 
