@@ -1,1 +1,1 @@
-# machine_learning_by_andrew_ng
+# Machine Learning by Andrew Ng
