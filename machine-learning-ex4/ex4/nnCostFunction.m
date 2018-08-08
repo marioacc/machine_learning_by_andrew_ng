@@ -83,7 +83,31 @@ J = unregularized_cost + regularization_term;
 
 
 
+%Part 2: backpropagation.
+for t = 1:m
+    a1 = [1 ; X(t,:)'];
+
+    z2 = Theta1 * a1;
+    a2 = [1 ; sigmoid(z2)];
+
+    z3 = Theta2 * a2;
+    a3 = sigmoid(z3);
+
+    boolean_y_vector = ([1:num_labels]==y(t))';
+
+    delta3 = a3 - boolean_y_vector;
+
+    delta2 = (Theta2' *  delta3) .* [1; sigmoidGradient(z2)];
+    delta2 = delta2(2:end);
+
+
+	Theta1_grad = Theta1_grad + delta2 * a1';
+	Theta2_grad = Theta2_grad + delta3 * a2';
+
+end
 % -------------------------------------------------------------
+Theta1_grad = (1/m) * Theta1_grad + (lambda/m) * [zeros(size(Theta1, 1), 1) Theta1(:,2:end)];
+Theta2_grad = (1/m) * Theta2_grad + (lambda/m) * [zeros(size(Theta2, 1), 1) Theta2(:,2:end)];
 
 % =========================================================================
 
