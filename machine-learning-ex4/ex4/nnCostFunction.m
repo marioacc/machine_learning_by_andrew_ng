@@ -62,21 +62,24 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+%Part 1:Feedforward
+a1 = [ones(m,1) X];
+z2 = a1 * Theta1';
+a2 = sigmoid(z2);
 
+a2 = [ones(size(a2,1),1) a2];
+z3 = a2 * Theta2';
+a3 = sigmoid(z3);
 
+hThetaX = a3;
+yVector = zeros(m,num_labels);
+for i = 1:m
+    yVector(i,y(i)) = 1;
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
+unregularized_cost = 1/m*sum(sum(-1 * yVector .* log(hThetaX) - (1-yVector).*log(1-hThetaX)));
+regularization_term = lambda/(2*m);
+J = unregularized_cost;
 
 
 
