@@ -78,8 +78,8 @@ for i = 1:m
 end
 
 unregularized_cost = 1/m*sum(sum(-1 * yVector .* log(hThetaX) - (1-yVector).*log(1-hThetaX)));
-regularization_term = lambda/(2*m);
-J = unregularized_cost;
+regularization_term = (lambda/(2*m)) * ( sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2)) );
+J = unregularized_cost + regularization_term;
 
 
 
