@@ -25,7 +25,7 @@ regularizationThetas = theta(2:end,1);
 h = linearRegression(X,theta);
 
 regularizedCostFunction = (1 / (2 * m)) .* sum((h - y) .^ 2);
-regularizationCostValue = (lambda / (2 * m)) .* sum(regularizationThetas .^ 2) ;
+regularizationCostValue = lambda*(1 / (2 * m)) .* sum(regularizationThetas .^ 2) ;
 J = regularizedCostFunction + regularizationCostValue;
 
 gradientDescentThetas = theta;
