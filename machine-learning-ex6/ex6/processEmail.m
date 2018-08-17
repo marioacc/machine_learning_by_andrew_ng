@@ -98,7 +98,15 @@ while ~isempty(email_contents)
     %
 
 
-
+    isStringInVocab = strcmp(str,vocabList);
+    getStringIndexInVocab = find(isStringInVocab);
+    if ~isempty(getStringIndexInVocab)
+        word_indices = [word_indices ; getStringIndexInVocab];
+    end
+    
+        
+    
+ 
 
 
 
