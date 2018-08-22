@@ -28,6 +28,15 @@ centroids = zeros(K, n);
 
 
 
+for k = 1:K
+    idxForExamplesAtCentroidk = find(idx==k);
+    elementsForCentroidk = X(idxForExamplesAtCentroidk,:);
+    totalOfElements = size(elementsForCentroidk,1);
+    centroids(k,:) = (1/totalOfElements).*sum(elementsForCentroidk);
+end
+
+
+
 
 
 

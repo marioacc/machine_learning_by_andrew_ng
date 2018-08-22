@@ -23,6 +23,17 @@ idx = zeros(size(X,1), 1);
 
 
 
+for i = 1:length(idx)
+    i_centroids_distance= zeros(K, 1);
+    for j = 1:K
+        i_centroids_distance(j) = sqrt(sum((X(i,1:end) - centroids(j,1:end)).^2));
+    end 
+    min_value = min(i_centroids_distance);
+    min_value_idx = find(min_value==i_centroids_distance);
+    idx(i) = min_value_idx;
+end
+
+
 
 
 
